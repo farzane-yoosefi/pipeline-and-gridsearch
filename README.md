@@ -3,7 +3,7 @@
 ## Gridsearch and Pipeline
 Before reading this page you need to know about pipeline and gridsearch .
 If you don't know about each of them please refer to these pages :
-`Grid search :` https://github.com/farzane-yoosefi/Gridsearch
+`Grid search :` https://github.com/farzane-yoosefi/Gridsearch  
 `pipeline :` https://github.com/farzane-yoosefi/pipleline
 
 ### GridsearchCV
@@ -137,25 +137,14 @@ precision    recall  f1-score   support
    macro avg       0.92      0.98      0.94        30
 weighted avg       0.97      0.97      0.97        30
 ```
-Interpret the output :
-*accuracy* is 97% : Perfect result.
-**Class 0** : Perfect performance for class 0 .
-             1.00 precision → Every prediction of class 0 was correct(no false positive)
-             1.00 recal → Foulnd all actuall class 0 samples (no false  negetive)
-             1.00 → Perfect balance.
-             11 → There are 11 class 0 samples in the data.
-             
-**Class 1** :Good .
-             1.00 precision → Every time the model predicts class 1 , it was correct. (no false positive)
-             0.94 recal → Found 15 out of 16 class 1 samples.(Once false negative)
-             0.86 F1-score → Excellent balance between precision and recall
-             16 → There are 16 class 1 samples in the data.
-             
-**Class 2** :Has mixed performance
-             0.75 precision → When it precdicts class 2 , it's correct 3 out of 4 times.  
-             1.00 recall → Found all 3 actual class 2 sample.
-             0.86 F1-score → Good but not perfect due to that 1 wrong prediction.
-             3 →  Only 3 class 2 samples in test set.
+Interpret the output :  
 
+
+| Class | Precision → Meaning | Recall → Meaning | F1 → Meaning | Support |
+|-------|---------------------|------------------|--------------|---------|
+| **Overall** | - → - | - → - | - → - | 30 → **97% accuracy** |
+| **0** | 1.00 → Every prediction correct | 1.00 → Found all 11 samples | 1.00 → Perfect balance | 11 samples |
+| **1** | 1.00 → All "class 1" predictions correct | 0.94 → Found 15/16 samples | 0.86 → Excellent balance | 16 samples |
+| **2** | 0.75 → Correct 3/4 times | 1.00 → Found all 3 samples | 0.86 → Good but imperfect | 3 samples |
 
 
