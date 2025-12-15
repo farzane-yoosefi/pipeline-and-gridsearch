@@ -112,14 +112,50 @@ Fitting 5 folds for each of 72 candidates, totalling 360 fits
 ```
 Can you tell me where is this result from ?
 Answer is : **verbose**
+Also this is the cross-validation result coming from gridsearch,just showing the GridSearchCV configuration.
+<p align="center"><img src="https://github.com/farzane-yoosefi/pipeline-and-gridsearch/blob/main/SVS.JPG" alt="cross-validatiom table" width="300" /></p>
+
 #### Do prediction 
 ```python
 y_pred = grisdearch.predict(X_test)
 ```
+## Step 7 :
+Verify your model :
+```python
+score = classification_report(y_pred,Y_test)
+print(score)
+```
 Output :
 ```
+precision    recall  f1-score   support
 
+           0       1.00      1.00      1.00        11
+           1       1.00      0.94      0.97        16
+           2       0.75      1.00      0.86         3
+
+    accuracy                           0.97        30
+   macro avg       0.92      0.98      0.94        30
+weighted avg       0.97      0.97      0.97        30
 ```
+Interpret the output :
+*accuracy* is 97% : Perfect result.
+**Class 0** : Perfect performance for class 0 .
+             1.00 precision → Every prediction of class 0 was correct(no false positive)
+             1.00 recal → Foulnd all actuall class 0 samples (no false  negetive)
+             1.00 → Perfect balance.
+             11 → There are 11 class 0 samples in the data.
+             
+**Class 1** :Good .
+             1.00 precision → Every time the model predicts class 1 , it was correct. (no false positive)
+             0.94 recal → Found 15 out of 16 class 1 samples.(Once false negative)
+             0.86 F1-score → Excellent balance between precision and recall
+             16 → There are 16 class 1 samples in the data.
+             
+**Class 2** :Has mixed performance
+             0.75 precision → When it precdicts class 2 , it's correct 3 out of 4 times.  
+             1.00 recall → Found all 3 actual class 2 sample.
+             0.86 F1-score → Good but not perfect due to that 1 wrong prediction.
+             3 →  Only 3 class 2 samples in test set.
 
 
 
